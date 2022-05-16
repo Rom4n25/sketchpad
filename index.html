@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css" id="style">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
@@ -13,8 +13,16 @@
         <header class="header">Sketchpad</header>
 
         <main class="main">
-            <span>Select size</span>
-            <input type="range" id="input" value="16" min="16" max="64" step="1"> 
+            <div class="container-select">
+                <span>Select size</span>
+                <input type="range" id="input" value="16" min="16" max="64" step="1"> 
+                <button id="clear">Clear</button>
+                <div class="colors">
+                    <button id="red">Red</button>
+                    <button id="blue">Blue</button>
+                    <button id="green">Green</button>
+                </div>
+            </div>
             <div class="container-box"></div>
         </main>
 

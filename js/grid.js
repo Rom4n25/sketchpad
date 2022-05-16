@@ -1,5 +1,5 @@
 function createSketch(){
-    clearSketch();
+    containerBox.replaceChildren();
     let gridSize = inputRange.value;
     containerBox.style.cssText = "grid-template-columns: repeat("+gridSize+",1fr)";
 
@@ -13,7 +13,7 @@ function createSketch(){
 }
 
 function clearSketch(){
-    containerBox.replaceChildren();
+    boxList.forEach(box=>box.classList.remove("click"));
 }
  
 function mouseOverBox(){
@@ -26,8 +26,7 @@ function mouseUpBox(){
 
 function mouseDownBox(){
     this.classList.add("click");
-    boxList.forEach((e)=>
-        e.addEventListener("mouseover",mouseOverBox));
+    boxList.forEach((box)=>box.addEventListener("mouseover",mouseOverBox));
 }
 
 const containerBox = document.querySelector(".container-box");
@@ -37,5 +36,8 @@ let boxList;
 
 const inputRange = document.getElementById("input");
 inputRange.addEventListener("input",createSketch);
+
+const button = document.getElementById("clear");
+button.addEventListener("click",clearSketch);
 
 createSketch();
