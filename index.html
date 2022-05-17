@@ -13,20 +13,19 @@
         <header class="header">Sketchpad</header>
 
         <main class="main">
-            <div class="container-select">
-                <span>Select size</span>
-                <input type="range" id="input" value="16" min="16" max="64" step="1"> 
-                <button id="clear">Clear</button>
-                <div class="colors">
-                    <button id="red">Red</button>
-                    <button id="blue">Blue</button>
-                    <button id="green">Green</button>
+            <div class="btnContainer">
+                <span>Grid size</span>
+                <input type="range" class="rangeBtn" value="16" min="16" max="64" step="1"> 
+                <button class="clearBtn">Clear</button>
+                <div class="colorsWrap">
+                    <button class="colorBtn" id="black">&#128393;</button>
+                    <button class="colorBtn" id="red">&#128393;</button>
+                    <button class="colorBtn" id="blue">&#128393;</button>
+                    <button class="colorBtn" id="green">&#128393;</button>
                 </div>
             </div>
-            <div class="container-box"></div>
+            <div class="boxContainer"></div>
         </main>
-
-        <footer class="footer"></footer>
 
         <script src="js/grid.js"></script>
     </body>

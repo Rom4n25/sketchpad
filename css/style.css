@@ -1,9 +1,13 @@
+*{
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+}
+
 body{
     margin: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Gloria Hallelujah', cursive;
     background-image: url("../img/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +19,6 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 62px;
-    margin-bottom: 20px;
 }
 
 .main{
@@ -25,7 +28,41 @@ body{
     align-items: center;
 }
 
-.container-box{
+.btnContainer{
+    display: flex;
+    gap: 20px;
+}
+
+button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.rangeBtn{
+    cursor: pointer;
+}
+
+#black{
+    color: black;
+ }
+
+#red{
+   color: red;
+}
+
+#blue{
+    color: blue;
+ }
+
+#green{
+    color: green;
+ }
+
+.boxContainer{
     height: 600px;
     width: 600px;
     display: grid;
@@ -39,35 +76,6 @@ body{
 .box{
     border-style: solid;
     border-width: 1px;
-    border-color: grey;
+    border-color: rgba(128, 128, 128, 0.301);
     user-select: none;
-}
-
-.click{
-    background-color: black;
-}
-
-.red{
-    background-color: red;
-}
-
-.container-select{
-    display: flex;
-    gap: 20px;
-}
-
-span{
-    font-size: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
-}
-
-button{
-    font-size: 20px;
-    font-family: 'Gloria Hallelujah', cursive;
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	outline: inherit;
 }

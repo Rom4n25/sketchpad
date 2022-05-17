@@ -1,43 +1,63 @@
 function createSketch(){
-    containerBox.replaceChildren();
-    let gridSize = inputRange.value;
-    containerBox.style.cssText = "grid-template-columns: repeat("+gridSize+",1fr)";
+    boxContainer.replaceChildren();
+    let gridSize = rangeSlider.value;
+    boxContainer.style.cssText = "grid-template-columns: repeat("+gridSize+",1fr)";
 
     for(let i = 0; i<(gridSize*gridSize); i++){
-        containerBox.appendChild(box.cloneNode(true)); 
+        boxContainer.appendChild(box.cloneNode(true)); 
     }
 
-    boxList = document.querySelectorAll(".box");
-    boxList.forEach((box)=>box.addEventListener("mousedown",mouseDownBox));
-    boxList.forEach((box)=>box.addEventListener("mouseup",mouseUpBox));
+    boxesInContainer = document.querySelectorAll(".box");
+    boxesInContainer.forEach((box)=>box.addEventListener("mousedown",mouseDownBox));
+    boxesInContainer.forEach((box)=>box.addEventListener("mouseup",mouseUpBox));
 }
 
 function clearSketch(){
-    boxList.forEach(box=>box.classList.remove("click"));
-}
- 
-function mouseOverBox(){
-    this.classList.add("click");
-}
-
-function mouseUpBox(){
-    boxList.forEach((box)=>box.removeEventListener("mouseover",mouseOverBox));
+    boxesInContainer.forEach(box=>box.style.backgroundColor="white");
 }
 
 function mouseDownBox(){
-    this.classList.add("click");
-    boxList.forEach((box)=>box.addEventListener("mouseover",mouseOverBox));
+    setColor(this);
+    boxesInContainer.forEach((box)=>box.addEventListener("mouseover",mouseOverBox));
 }
 
-const containerBox = document.querySelector(".container-box");
+function mouseOverBox(){
+    setColor(this);
+}
+
+function mouseUpBox(){
+    boxesInContainer.forEach((box)=>box.removeEventListener("mouseover",mouseOverBox));
+}
+
+function setColor(box){
+
+    switch(currentColor){
+        case "red" : box.style.backgroundColor="red";
+        break;
+        case "blue" : box.style.backgroundColor="blue";
+        break;
+        case "green" : box.style.backgroundColor="green";
+        break;
+        case "black" : box.style.backgroundColor="black";
+        break;
+        default : box.style.backgroundColor="black";
+    }
+}
+
+const boxContainer = document.querySelector(".boxContainer");
 const box = document.createElement("div");
 box.classList.add("box");
-let boxList;
+let boxesInContainer;
 
-const inputRange = document.getElementById("input");
-inputRange.addEventListener("input",createSketch);
+const rangeSlider = document.querySelector(".rangeBtn");
+rangeSlider.addEventListener("input",createSketch);
 
-const button = document.getElementById("clear");
-button.addEventListener("click",clearSketch);
+const clearBtn = document.querySelector(".clearBtn");
+clearBtn.addEventListener("click",clearSketch);
+
+let currentColor;
+
+const colorBtn = document.querySelectorAll(".colorBtn");
+colorBtn.forEach((box)=>box.addEventListener("click",()=>{currentColor=box.id}));
 
 createSketch();
